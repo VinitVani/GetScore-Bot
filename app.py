@@ -4,11 +4,12 @@ import json
 import re
 
 app = Flask(__name__)
+env_config = os.getenv("PROD_APP_SETTINGS", "config.DevelopmentConfig")
+app.config.from_object(env_config)
 
-# Replace with your own API key
 API_KEY = "cb2eabb7-28a1-4d64-9904-4057522e0d84"
 
-# Replace with your own webhook URL
+
 WEBHOOK_URL = "/ https://0c2a-49-43-41-134.ngrok.io"
 
 test_nations = list(
